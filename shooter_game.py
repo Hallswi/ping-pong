@@ -48,9 +48,10 @@ class Player(GameSprite):
 
 L_Player = Player('racket.png', 5, win_height - 150, 80, 150, 10)
 R_Player = Player('racket.png', 615 , win_height - 150, 80, 150, 10)
-Ball = Player('ball.png', 270, win_height - 300, 150, 100, 10)
+Ball = Player('ball.png', 270, win_height - 300, 75, 50, 10)
 
-
+ballx = 5
+bally = 5
 
 
 while run:
@@ -66,6 +67,11 @@ while run:
 
         R_Player.update_R()
         R_Player.reset()   
+
+        Ball.rect.x += ballx
+        Ball.rect.y += bally
+        if Ball.rect.y > win_height - 100 or Ball.rect.y < 0:
+            bally*= - 1
 
         Ball.reset()
     
