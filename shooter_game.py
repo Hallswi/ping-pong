@@ -36,18 +36,18 @@ class Player(GameSprite):
         keys = key.get_pressed()
         if keys[K_w] and self.rect.y > 5:
             self.rect.y -= self.speed
-        if keys[K_s] and self.rect.y < win_height - 150:
+        if keys[K_s] and self.rect.y < win_height - 100:
             self.rect.y += self.speed
 
     def update_R(self):
         keys = key.get_pressed()
         if keys[K_UP] and self.rect.y > 5:
             self.rect.y -= self.speed
-        if keys[K_DOWN] and self.rect.y < win_height - 150:
+        if keys[K_DOWN] and self.rect.y < win_height - 100:
             self.rect.y += self.speed
 
-L_Player = Player('racket.png', 5, win_height - 150, 80, 150, 10)
-R_Player = Player('racket.png', 615 , win_height - 150, 80, 150, 10)
+L_Player = Player('racket.png', 5, win_height - 150, 50, 100, 10)
+R_Player = Player('racket.png', 635 , win_height - 150, 50, 100, 10)
 Ball = Player('ball.png', 270, win_height - 300, 75, 50, 10)
 
 ballx = 5
