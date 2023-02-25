@@ -88,7 +88,7 @@ while run:
         
         if Ball.rect.x > 640:
             finish = True
-            window.blit(lose1, (200, 200))
+            window.blit(lose2, (200, 200))
 
 
         
