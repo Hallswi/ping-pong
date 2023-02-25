@@ -8,6 +8,7 @@ display.set_caption("Ping-pong")
 window = display.set_mode((win_width, win_height))
 background = (200, 255, 255)
 
+font.init()
 clock = time.Clock()
 FPS = 60
 run = True
@@ -47,12 +48,17 @@ class Player(GameSprite):
             self.rect.y += self.speed
 
 L_Player = Player('racket.png', 5, win_height - 150, 50, 100, 10)
-R_Player = Player('racket.png', 635 , win_height - 150, 50, 100, 10)
+R_Player = Player('racket.png', 640 , win_height - 150, 50, 100, 10)
 Ball = GameSprite('ball.png', 270, win_height - 300, 75, 50, 10)
 
 ballx = 5
 bally = 5
 
+font1 = font.Font(None, 35)
+lose1 = font1.render('PLAYER 1 LOSE!', True, (180, 0, 0))
+
+font2 = font.Font(None, 35)
+lose2 = font1.render('PLAYER 2 LOSE!', True, (180, 0, 0))
 
 while run:
     #событие нажатия на кнопку “Закрыть”
@@ -76,7 +82,13 @@ while run:
         if sprite.collide_rect(L_Player, Ball) or sprite.collide_rect(R_Player, Ball):
             ballx *= -1
 
-
+        if Ball.rect.x < - 10:
+            finish = True
+            window.blit(lose1, (200, 200))
+        
+        if Ball.rect.x > 640:
+            finish = True
+            window.blit(lose1, (200, 200))
 
 
         
