@@ -48,7 +48,7 @@ class Player(GameSprite):
 
 L_Player = Player('racket.png', 5, win_height - 150, 50, 100, 10)
 R_Player = Player('racket.png', 635 , win_height - 150, 50, 100, 10)
-Ball = Player('ball.png', 270, win_height - 300, 75, 50, 10)
+Ball = GameSprite('ball.png', 270, win_height - 300, 75, 50, 10)
 
 ballx = 5
 bally = 5
@@ -70,9 +70,17 @@ while run:
 
         Ball.rect.x += ballx
         Ball.rect.y += bally
-        if Ball.rect.y > win_height - 100 or Ball.rect.y < 0:
+        if Ball.rect.y > win_height - 50 or Ball.rect.y < 0:
             bally*= - 1
 
+        if sprite.collide_rect(L_Player, Ball) or sprite.collide_rect(R_Player, Ball):
+            ballx *= -1
+
+
+
+
+        
+        
         Ball.reset()
     
     
